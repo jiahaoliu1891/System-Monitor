@@ -8,7 +8,23 @@
     <title>System Info</title>
 </head>
 <body>
-    <nav></nav>
+    <nav>
+        <div class="left-nav">
+            <span class="nav-link">
+                &#x2630;
+            </span>
+        </div>
+
+        <div class="right-nav">
+            <span class="nav-link" id='minimize'>
+                &minus;
+            </span>
+            <span class="nav-link" id='closeapp'>
+                &#10006;
+            </span>
+
+        </div>
+    </nav>
     <Section>
         <h1 class='header'>CPU Overview</h1>
         <div class="cpu-used-container">
@@ -21,5 +37,6 @@
         </div>
     </Section>
     <script src='./render.js' defer type='module'></script>
+    <script src="./js/window.js" defer type='module'></script>
 </body>
 </html>

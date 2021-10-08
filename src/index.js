@@ -10,16 +10,18 @@ let window;
 
 async function main() {
     window = new BrowserWindow({
-        width: 1000,
-        height: 600,
+        width: 500,
+        height: 400,
         resizable: false,
-        // frame: false
+        frame: false,
         webPreferences: {
             preload: path.join(__dirname + '/backend/preload.js')
-        }
+        },
+        // show: false,
+
     });
 
-    window.webContents.openDevTools();
+    // window.webContents.openDevTools();
 
     window.loadFile(path.join(__dirname, '/app/index.html'));
 }
@@ -28,4 +30,13 @@ async function main() {
 ipcMain.handle('cpu/get', async (_, data) => {
     const usage = await currentLoad();
     return usage;
+})
+
+ipcMain.on('app/close', ()=>{
+    console.log('quit')
+    app.quit();
+})
+
+ipcMain.on('app/minimize', ()=>{
+    window.minimize();
 })

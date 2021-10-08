@@ -1,8 +1,6 @@
 const CPU_USED_TEXT = document.getElementById('used-cpu');
 const INNER_BAR = document.getElementById('inner-bar');
 
-
-
 async function getCpuUsage() {
     const usage = await app.cpuUsage();
     const usedOverall = usage.currentLoad;
